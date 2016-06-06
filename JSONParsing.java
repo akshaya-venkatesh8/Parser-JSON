@@ -24,27 +24,14 @@ public class JSONParsing {
      * @param args the command line arguments
      * @throws java.io.FileNotFoundException
      */
-    public static void main(String[] args) throws FileNotFoundException, ParseException {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
         String line,jsonData="";
         Address ad = new Address();
-        BufferedReader br = new BufferedReader(new FileReader("address.json"));
+        FileReader jsonfile = new FileReader("address.json");
         JSONParser thisparser=new JSONParser();
-       
-     try {
-        
-        
-	while ((line = br.readLine()) != null) {
-            jsonData += line + "\n";
-	}
-     }
-     catch (IOException e) {
-			e.printStackTrace();
-		} 
-       
-       
- JSONObject jsonObject = (JSONObject) thisparser.parse(jsonData);            
- JSONObject addressobj = (JSONObject) jsonObject.get("address");
+        JSONObject jsonObject = (JSONObject) thisparser.parse(jsonfile);            
+        JSONObject addressobj = (JSONObject) jsonObject.get("address");
      ad.name=(String)addressobj.get("name");
      ad.streetNumber=(String)addressobj.get("streetnumber");
      ad.streetName=(String)addressobj.get("streetname");
