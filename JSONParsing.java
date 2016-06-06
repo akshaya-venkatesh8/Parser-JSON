@@ -26,7 +26,7 @@ public class JSONParsing {
      */
     public static void main(String[] args) throws Exception {
         // TODO code application logic here
-        String line,jsonData="";
+        
         Address ad = new Address();
         FileReader jsonfile = new FileReader("address.json");
         JSONParser thisparser=new JSONParser();
